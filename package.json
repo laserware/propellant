@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "bun build ./index.js --outdir build --target node",
     "test": "node --test",
     "prettier": "prettier --write index.js parse.js parse.test.js"
   },
@@ -19,8 +20,7 @@
   "author": "Mike Rourke <mike.w.rourke@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0"
+    "@actions/core": "^1.11.1"
   },
   "devDependencies": {
     "prettier": "^3.4.2"
