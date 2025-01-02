@@ -1,11 +1,9 @@
-import * as assert from "node:assert";
-import { describe, it } from "node:test";
+import { describe, expect, it } from "bun:test";
 
-import { parse } from "./parse.js";
+import { parse } from "../parse.ts";
 
 describe("the parse function", () => {
   const testCases = [
-    // prettier-ignore
     {
       version: "1",
       expected: { major: 1, minor: undefined, patch: undefined, tag: undefined, build: undefined },
@@ -36,17 +34,17 @@ describe("the parse function", () => {
     },
   ];
 
-  for (const testCase of testCases) {
-    it(`parses a version with value ${testCase.version}`, () => {
-      const result = parse(testCase.version);
+  for (const { version, expected } of testCases) {
+    it(`parses a version with value ${version}`, () => {
+      const result = parse(version);
 
-      assert.deepEqual(result, testCase.expected);
+      expect(result).toEqual(expected);
     });
   }
 
   it("throws an error if the version is completely invalid", () => {
-    assert.throws(() => {
+    expect(() => {
       parse("sldkfjdf");
-    });
+    }).toThrow();
   });
 });

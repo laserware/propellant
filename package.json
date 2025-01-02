@@ -1,13 +1,13 @@
 {
-  "name": "tag-parser",
-  "version": "1.0.1",
-  "description": "GitHub Action that extracts Semver version tag which can be used as npm tag",
-  "main": "index.js",
+  "name": "propellant",
+  "version": "0.0.1",
+  "description": "GitHub Action for publishing @laserware packages to npm.",
+  "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun build ./index.js --outdir build --target node",
-    "test": "node --test",
-    "prettier": "prettier --write index.js parse.js parse.test.js"
+    "build": "bun build src/index.ts --outdir build --target node --minify",
+    "test": "bun test",
+    "prettier": "prettier --write src"
   },
   "engines": {
     "node": ">=22"
@@ -15,7 +15,8 @@
   "keywords": [
     "github-action",
     "tag",
-    "semver"
+    "semver",
+    "npm"
   ],
   "author": "Mike Rourke <mike.w.rourke@gmail.com>",
   "license": "MIT",
@@ -23,13 +24,15 @@
     "@actions/core": "^1.11.1"
   },
   "devDependencies": {
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "@types/bun": "latest",
+    "typescript": "^5.7.2"
   },
   "prettier": {
     "overrides": [
       {
         "files": [
-          "*.test.js"
+          "*.test.ts"
         ],
         "options": {
           "printWidth": 100
