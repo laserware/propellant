@@ -24,7 +24,7 @@ export type VersionParts = {
  *
  * @param versionString String value of the version to parse.
  */
-export function parse(versionString: string): VersionParts {
+export function parseVersion(versionString: string): VersionParts {
   const [maybeMajor, ...rest] = versionString.split(/\W/).filter(Boolean);
 
   const major = coerce(maybeMajor);

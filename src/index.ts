@@ -1,6 +1,7 @@
-import { info, setFailed, setOutput } from "@actions/core";
+import { info, setFailed } from "@actions/core";
+import { npmPublish } from "@jsdevtools/npm-publish";
 
-import { parse } from "./parse.ts";
+import { parseVersion } from "./parse.ts";
 import { getCommitTag } from "./tag.ts";
 
 try {
@@ -13,19 +14,20 @@ try {
   }
 }
 
-function run() {
-  info("Getting latest tag");
+async function run() {
+  const token = process.env.NPM_TOKEN;
+  if (token === undefined) {
+    throw new Error("Missing `NPM_TOKEN` environment variable");
+  }
 
+  info("Getting latest tag");
   const version = getCommitTag();
 
   info(`Got tag version: ${version}`);
+  const versionParts = parseVersion(version);
 
-  const versionParts = parse(version);
+  const tag = versionParts.tag ?? "latest";
 
-  setOutput("full", version);
-  setOutput("major", versionParts.major);
-  setOutput("minor", versionParts.minor);
-  setOutput("patch", versionParts.patch);
-  setOutput("prerelease", versionParts.tag);
-  setOutput("build", versionParts.build);
+  info(`Publishing to npm with tag ${tag}`);
+  await npmPublish({ token, tag, dryRun: true });
 }
