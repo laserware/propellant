@@ -1,19 +1,5 @@
-name: "Tag Parser"
-description: "Parses the semantic version parts from the git tag."
-
-outputs:
-  full:
-    description: "A full representation of the semver"
-  major:
-    description: "MAJOR part of the semver"
-  minor:
-    description: "MINOR part of the semver"
-  patch:
-    description: "PATCH part of the semver"
-  prerelease:
-    description: "PRERELEASE part of the semver"
-  build:
-    description: "BUILD part of the semver"
+name: "Propellant"
+description: "GitHub Action for publishing @laserware packages to npm."
 
 runs:
   using: "node20"
