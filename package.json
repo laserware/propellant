@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun build src/index.ts --outdir build --target node --minify",
+    "build": "bun build src/index.ts --outdir . --target node --minify --entry-naming \"[dir]/action.[ext]\"",
     "test": "bun test",
     "prettier": "prettier --write src"
   },

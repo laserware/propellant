@@ -1,0 +1,10 @@
+name: Propellant
+description: GitHub Action for publishing @laserware packages to npm.
+
+runs:
+  using: node20
+  main: action.js
+
+branding:
+  icon: "play"
+  color: "gray-dark"
