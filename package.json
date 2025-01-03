@@ -5,9 +5,13 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
+    "preversion": "bun run test && bun run typecheck && bun run build",
+    "version": "bun run prettier && git add -A src",
+    "postversion": "git push && git push --tags",
     "build": "bun build src/index.ts --outdir . --target node --minify --entry-naming \"[dir]/action.[ext]\"",
     "test": "bun test",
-    "prettier": "prettier --write src"
+    "prettier": "prettier --write src",
+    "typecheck": "tsc --noEmit"
   },
   "engines": {
     "node": ">=22"

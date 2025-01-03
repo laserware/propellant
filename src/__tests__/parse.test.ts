@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 
-import { parse } from "../parse.ts";
+import { parseVersion } from "../parse.ts";
 
 describe("the parse function", () => {
   const testCases = [
@@ -36,7 +36,7 @@ describe("the parse function", () => {
 
   for (const { version, expected } of testCases) {
     it(`parses a version with value ${version}`, () => {
-      const result = parse(version);
+      const result = parseVersion(version);
 
       expect(result).toEqual(expected);
     });
@@ -44,7 +44,7 @@ describe("the parse function", () => {
 
   it("throws an error if the version is completely invalid", () => {
     expect(() => {
-      parse("sldkfjdf");
+      parseVersion("sldkfjdf");
     }).toThrow();
   });
 });
