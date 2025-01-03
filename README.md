@@ -2,7 +2,7 @@
 
 GitHub Action to parse the semantic version from a git tag and publish a package to npm.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > I created this GitHub Action mainly to address the semantic version parsing issues with other actions
 > in the marketplace, but also to try my hand at creating my own action. It is **highly** tailored
 > for `@laserware` packages, so I won't be accepting contributions and strongly recommend you
