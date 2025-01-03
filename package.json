@@ -1,6 +1,6 @@
 {
   "name": "propellant",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "GitHub Action for publishing @laserware packages to npm.",
   "main": "src/index.ts",
   "type": "module",
