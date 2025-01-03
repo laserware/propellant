@@ -29,5 +29,5 @@ async function run() {
   const tag = versionParts.tag ?? "latest";
 
   info(`Publishing to npm with tag ${tag}`);
-  await npmPublish({ token, tag, dryRun: true });
+  await npmPublish({ token, tag });
 }
