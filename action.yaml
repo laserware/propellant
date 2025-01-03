@@ -1,5 +1,5 @@
-name: Propellant
-description: GitHub Action for publishing @laserware packages to npm.
+name: "Propellant"
+description: "GitHub Action for publishing @laserware packages to npm."
 
 runs:
   using: node20
